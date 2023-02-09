@@ -33,6 +33,30 @@ public class Order {
         if (order.orderStatus == OrderStatus.DELIVERED) {
             System.out.println("delivered");
         }
-    }
 
+        System.out.println("===== [values] 사용법 =====");
+        for (OrderStatus orderStatus : OrderStatus.values()) {
+            System.out.println(orderStatus);
+        }
+
+        System.out.println("===== [valueOf] 사용법 =====");
+        System.out.println(OrderStatus.valueOf("DELIVERED"));
+
+        System.out.println("===== [EnumSet] 사용법 =====");
+        EnumSet<OrderStatus> orderStatuses = EnumSet.allOf(OrderStatus.class);
+        EnumSet<OrderStatus> es = EnumSet.copyOf(orderStatuses);
+        System.out.println("EnumSet.allOf() - " + es);
+
+        es = EnumSet.noneOf(OrderStatus.class);
+        System.out.println("EnumSet.noneOf - " + es);
+
+        es = EnumSet.of(OrderStatus.PREPARING, OrderStatus.SHIPPED);
+        System.out.println("EnumSet.of - " + es);
+
+        es = EnumSet.complementOf(es);
+        System.out.println("EnumSet.complementOf - " + es);
+
+        es = EnumSet.range(OrderStatus.PREPARING, OrderStatus.DELIVERED);
+        System.out.println("EnumSet.range - " + es);
+    }
 }

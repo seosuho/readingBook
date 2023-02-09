@@ -58,5 +58,11 @@ public class Order {
 
         es = EnumSet.range(OrderStatus.PREPARING, OrderStatus.DELIVERED);
         System.out.println("EnumSet.range - " + es);
+
+        System.out.println("===== [EnumMap] 사용법 =====");
+        EnumMap<OrderStatus, String> orderStatusObjectEnumMap = new EnumMap<>(OrderStatus.class);
+        orderStatusObjectEnumMap.put(OrderStatus.PREPARING, "First");
+        orderStatusObjectEnumMap.put(OrderStatus.SHIPPED, "Second");
+        System.out.println(orderStatusObjectEnumMap);
     }
 }
